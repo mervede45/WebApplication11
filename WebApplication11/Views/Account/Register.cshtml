@@ -1,0 +1,264 @@
+﻿@model WebApplication11.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Kayıt Ol";
+}
+
+<div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-panel">
+            <h2 class="auth-title">🚀 Kayıt Ol</h2>
+            <p class="auth-subtitle">Şifre Yöneticisi</p>
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "auth-form", role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Email, new {
+                    @class = "form-control",
+                    @placeholder = "E-posta adresinizi girin",
+                    @type = "email",
+                    @autocomplete = "email"
+                })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                @Html.PasswordFor(m => m.Password, new {
+                    @class = "form-control",
+                    @placeholder = "Güvenli bir şifre oluşturun",
+                    @autocomplete = "new-password",
+                    @id = "password"
+                })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                <!-- Password Strength Indicator -->
+                <div class="password-strength" id="passwordStrength" style="margin-top: 10px;">
+                    <div class="strength-meter">
+                        <div class="strength-meter-fill" id="strengthMeterFill"></div>
+                    </div>
+                    <small class="strength-text" id="strengthText">Şifre gücü</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new {
+                    @class = "form-control",
+                    @placeholder = "Şifrenizi tekrar girin",
+                    @autocomplete = "new-password",
+                    @id = "confirmPassword"
+                })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+
+                <!-- Password Match Indicator -->
+                <div class="password-match" id="passwordMatch" style="margin-top: 8px; display: none;">
+                    <small class="match-text" id="matchText"></small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" id="registerBtn">
+                    ✨ Hesap Oluştur
+                </button>
+            </div>
+            }
+
+            <div class="auth-links">
+                <p>
+                    Zaten hesabınız var mı?
+                    @Html.ActionLink("🔐 Giriş Yapın", "Login", null, new { @class = "login-link" })
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Password strength checker
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            let feedback = [];
+
+            if (password.length >= 8) strength += 1;
+            else feedback.push("En az 8 karakter");
+
+            if (password.match(/[a-z]/)) strength += 1;
+            else feedback.push("Küçük harf");
+
+            if (password.match(/[A-Z]/)) strength += 1;
+            else feedback.push("Büyük harf");
+
+            if (password.match(/[0-9]/)) strength += 1;
+            else feedback.push("Sayı");
+
+            if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+            else feedback.push("Özel karakter");
+
+            return { strength, feedback };
+        }
+
+        // Password strength indicator
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const { strength, feedback } = checkPasswordStrength(password);
+            const strengthMeter = document.getElementById('strengthMeterFill');
+            const strengthText = document.getElementById('strengthText');
+
+            // Update meter
+            const percentage = (strength / 5) * 100;
+            strengthMeter.style.width = percentage + '%';
+
+            // Update colors and text
+            if (strength === 0) {
+                strengthMeter.style.background = '#dc3545';
+                strengthText.textContent = 'Çok zayıf';
+                strengthText.style.color = '#dc3545';
+            } else if (strength <= 2) {
+                strengthMeter.style.background = '#fd7e14';
+                strengthText.textContent = 'Zayıf';
+                strengthText.style.color = '#fd7e14';
+            } else if (strength <= 3) {
+                strengthMeter.style.background = '#ffc107';
+                strengthText.textContent = 'Orta';
+                strengthText.style.color = '#ffc107';
+            } else if (strength <= 4) {
+                strengthMeter.style.background = '#20c997';
+                strengthText.textContent = 'İyi';
+                strengthText.style.color = '#20c997';
+            } else {
+                strengthMeter.style.background = '#28a745';
+                strengthText.textContent = 'Mükemmel';
+                strengthText.style.color = '#28a745';
+            }
+
+            if (feedback.length > 0 && password.length > 0) {
+                strengthText.textContent += ' (Eksik: ' + feedback.join(', ') + ')';
+            }
+        });
+
+        // Password confirmation checker
+        function checkPasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const matchDiv = document.getElementById('passwordMatch');
+            const matchText = document.getElementById('matchText');
+
+            if (confirmPassword.length > 0) {
+                matchDiv.style.display = 'block';
+                if (password === confirmPassword) {
+                    matchText.textContent = '✅ Şifreler eşleşiyor';
+                    matchText.style.color = '#28a745';
+                } else {
+                    matchText.textContent = '❌ Şifreler eşleşmiyor';
+                    matchText.style.color = '#dc3545';
+                }
+            } else {
+                matchDiv.style.display = 'none';
+            }
+        }
+
+        document.getElementById('password').addEventListener('input', checkPasswordMatch);
+        document.getElementById('confirmPassword').addEventListener('input', checkPasswordMatch);
+
+        // Form submission loading effect
+        document.querySelector('#registerBtn').addEventListener('click', function(e) {
+            var isValid = true;
+
+            // Simple validation check
+            var email = document.querySelector('input[type="email"]').value;
+            var password = document.querySelector('#password').value;
+            var confirmPassword = document.querySelector('#confirmPassword').value;
+
+            if (!email || !password || !confirmPassword || password !== confirmPassword) {
+                isValid = false;
+            }
+
+            if (isValid) {
+                this.classList.add('loading');
+                this.innerHTML = 'Hesap oluşturuluyor...';
+            }
+        });
+
+        // Enhanced form interactions
+        document.querySelectorAll('.form-control').forEach(function(input) {
+            // Focus effects
+            input.addEventListener('focus', function() {
+                this.closest('.form-group').style.transform = 'translateY(-2px)';
+                this.closest('.form-group').style.transition = 'all 0.3s ease';
+            });
+
+            input.addEventListener('blur', function() {
+                this.closest('.form-group').style.transform = '';
+            });
+
+            // Floating label effect
+            input.addEventListener('input', function() {
+                if (this.value) {
+                    this.classList.add('has-content');
+                } else {
+                    this.classList.remove('has-content');
+                }
+            });
+        });
+
+        // Success animation for registration
+        window.showSuccessAnimation = function() {
+            const panel = document.querySelector('.auth-panel');
+            panel.style.animation = 'successPulse 1s ease-in-out';
+        };
+    });
+</script>
+
+<style>
+    /* Password strength meter */
+    .password-strength {
+        margin-top: 8px;
+    }
+
+    .strength-meter {
+        width: 100%;
+        height: 4px;
+        background-color: #e1e5e9;
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+
+    .strength-meter-fill {
+        height: 100%;
+        width: 0%;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .strength-text {
+        font-size: 12px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .password-match {
+        margin-top: 5px;
+    }
+
+    .match-text {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .form-control.has-content {
+        border-color: #667eea;
+        background: rgba(102, 126, 234, 0.05);
+    }
+
+    @@keyframes successPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(40, 167, 69, 0.5); }
+        100% { transform: scale(1); }
+    }
+</style>

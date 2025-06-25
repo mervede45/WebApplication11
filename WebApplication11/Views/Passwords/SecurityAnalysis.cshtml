@@ -1,0 +1,191 @@
+﻿@model IEnumerable<WebApplication11.Models.PasswordEntry>
+@{
+    ViewBag.Title = "Güvenlik Analizi";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .dashboard-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .analysis-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+        border-left: 4px solid #667eea;
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .modern-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+        .modern-btn:hover {
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+    .stats-card {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+        .stats-card h3 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+    .weak-password {
+        background: #ffe6e6;
+        border-left: 4px solid #dc3545;
+    }
+
+    .medium-password {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+    }
+
+    .strong-password {
+        background: #d4edda;
+        border-left: 4px solid #28a745;
+    }
+</style>
+
+<div class="dashboard-container">
+    <div class="text-center mb-4">
+        <h1 class="header-title">
+            <i class="glyphicon glyphicon-shield"></i> Güvenlik Analizi
+        </h1>
+        <p class="text-muted">Şifrelerinizin güvenlik durumunu analiz edin</p>
+    </div>
+
+    <!-- Geri Dön Butonu -->
+    <div class="mb-4">
+        @Html.ActionLink("🔙 Şifrelerime Dön", "Index", null, new { @class = "modern-btn" })
+    </div>
+
+    <!-- Güvenlik İstatistikleri -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="stats-card" style="background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);">
+                <h3>@(ViewBag.WeakPasswords ?? 0)</h3>
+                <p>Zayıf Şifreler</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card" style="background: linear-gradient(135deg, #ffc107 0%, #ffeb3b 100%);">
+                <h3>@(ViewBag.MediumPasswords ?? 0)</h3>
+                <p>Orta Güçlü Şifreler</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card" style="background: linear-gradient(135deg, #28a745 0%, #4caf50 100%);">
+                <h3>@(ViewBag.StrongPasswords ?? 0)</h3>
+                <p>Güçlü Şifreler</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card" style="background: linear-gradient(135deg, #6f42c1 0%, #8e44ad 100%);">
+                <h3>@Model.Count()</h3>
+                <p>Toplam Şifre</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zayıf Şifreler -->
+    @if ((ViewBag.WeakPasswords ?? 0) > 0)
+    {
+    <div class="analysis-card weak-password">
+        <h4><i class="glyphicon glyphicon-exclamation-sign"></i> Zayıf Şifreler</h4>
+        <p>Bu şifreler güvenlik açısından risk oluşturuyor. Güncellemenizi öneririz.</p>
+        <ul>
+            @foreach (var password in Model.Where(p => p.PasswordStrength == 0))
+                {
+            <li>@password.Title - @password.Category.Name</li>
+                }
+        </ul>
+    </div>
+    }
+
+    <!-- Güvenlik Önerileri -->
+    <div class="analysis-card strong-password">
+        <h4><i class="glyphicon glyphicon-ok-circle"></i> Güvenlik Önerileri</h4>
+        <ul>
+            <li>🔒 Şifreleriniz en az 12 karakter uzunluğunda olsun</li>
+            <li>🔤 Büyük harf, küçük harf, sayı ve özel karakter kullanın</li>
+            <li>🔄 Şifrelerinizi düzenli olarak değiştirin</li>
+            <li>❌ Aynı şifreyi birden fazla hesapta kullanmayın</li>
+            <li>📱 İki faktörlü doğrulama (2FA) kullanın</li>
+        </ul>
+    </div>
+
+    <!-- Detaylı Şifre Listesi -->
+    <div class="analysis-card">
+        <h4><i class="glyphicon glyphicon-list"></i> Tüm Şifreler</h4>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Kayıt Tanımı</th>
+                        <th>Kategori</th>
+                        <th>Güçlü Seviye</th>
+                        <th>Son Güncelleme</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr class="@(item.PasswordStrength == 0 ? "danger" : item.PasswordStrength == 1 ? "warning" : "success")">
+                        <td>@item.Title</td>
+                        <td>@item.Category.Name</td>
+                        <td>
+                            <span class="label label-@(WebApplication11.Models.PasswordHelper.GetPasswordStrengthColor(item.PasswordStrength))">
+                                @(WebApplication11.Models.PasswordHelper.GetPasswordStrengthText(item.PasswordStrength))
+                            </span>
+                        </td>
+                        <td>@item.CreatedDate.ToString("dd.MM.yyyy")</td>
+                        <td>
+                            @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

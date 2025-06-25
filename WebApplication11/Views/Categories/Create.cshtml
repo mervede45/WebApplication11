@@ -1,0 +1,328 @@
+﻿@model WebApplication11.Models.Category
+@{
+    ViewBag.Title = "Yeni Kategori";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px 0;
+    }
+
+    .form-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        margin: 20px auto;
+        padding: 40px;
+        max-width: 600px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .header-subtitle {
+        text-align: center;
+        color: #6c757d;
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .control-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+        font-size: 16px;
+        display: block;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        padding: 15px 20px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            background: rgba(255, 255, 255, 1);
+            outline: none;
+        }
+
+    .modern-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-right: 15px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        .modern-btn:hover {
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+    .btn-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.6);
+        }
+
+    .btn-default {
+        background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+    }
+
+        .btn-default:hover {
+            background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+            box-shadow: 0 8px 25px rgba(108, 117, 125, 0.6);
+        }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .form-actions {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .category-preview {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 20px;
+        border: 2px solid rgba(102, 126, 234, 0.1);
+        text-align: center;
+    }
+
+        .category-preview h4 {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+    .preview-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        margin: 0 auto 15px;
+    }
+
+    .preview-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        min-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-hint {
+        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 10px;
+        border-left: 4px solid #667eea;
+    }
+
+        .input-hint h5 {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+    .hint-examples {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .hint-tag {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .hint-tag:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-1px);
+        }
+
+    /* Responsive */
+    .responsive-mobile {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .header-title-mobile {
+        font-size: 2rem;
+    }
+
+    .form-actions-mobile {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modern-btn-mobile {
+        width: 100%;
+        margin: 5px 0;
+    }
+</style>
+
+<div class="form-container">
+    <div class="text-center mb-4">
+        <h1 class="header-title">
+            <i class="glyphicon glyphicon-plus"></i> Yeni Kategori Oluştur
+        </h1>
+        <p class="header-subtitle">Şifrelerinizi organize etmek için yeni bir kategori oluşturun</p>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "Kategori Adı", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Kategori adını girin...", @id = "categoryName", @onkeyup = "updatePreview()" } })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+        <div class="input-hint">
+            <h5>💡 Öneri Kategoriler:</h5>
+            <div class="hint-examples">
+                <span class="hint-tag" onclick="setCategory('Sosyal Medya')">Sosyal Medya</span>
+                <span class="hint-tag" onclick="setCategory('E-posta')">E-posta</span>
+                <span class="hint-tag" onclick="setCategory('Bankacılık')">Bankacılık</span>
+                <span class="hint-tag" onclick="setCategory('Eğlence')">Eğlence</span>
+                <span class="hint-tag" onclick="setCategory('İş')">İş</span>
+                <span class="hint-tag" onclick="setCategory('Alışveriş')">Alışveriş</span>
+                <span class="hint-tag" onclick="setCategory('Oyun')">Oyun</span>
+                <span class="hint-tag" onclick="setCategory('Diğer')">Diğer</span>
+            </div>
+        </div>
+    </div>
+
+ <!-- Kategori Önizleme -->
+    <div class="category-preview">
+        <h4>
+            <i class="glyphicon glyphicon-eye-open"></i>
+            Kategori Önizleme
+        </h4>
+        <div class="preview-icon">
+            <i class="glyphicon glyphicon-folder-close"></i>
+        </div>
+        <div class="preview-name" id="previewName">
+            Kategori adı burada görünecek...
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" value="📁 Kategori Oluştur" class="modern-btn btn-success" />
+        @Html.ActionLink("🔙 İptal", "Index", null, new { @class = "modern-btn btn-default" })
+    </div>
+    }
+</div>
+
+<script>
+    function updatePreview() {
+        var categoryName = document.getElementById('categoryName').value;
+        var previewName = document.getElementById('previewName');
+
+        if (categoryName.trim() === '') {
+            previewName.textContent = 'Kategori adı burada görünecek...';
+            previewName.style.color = '#6c757d';
+            previewName.style.fontStyle = 'italic';
+        } else {
+            previewName.textContent = categoryName;
+            previewName.style.color = '#333';
+            previewName.style.fontStyle = 'normal';
+        }
+    }
+
+    function setCategory(name) {
+        document.getElementById('categoryName').value = name;
+        updatePreview();
+
+        // Güzel animasyon efekti
+        var previewName = document.getElementById('previewName');
+        previewName.style.transform = 'scale(1.1)';
+        previewName.style.color = '#667eea';
+
+        setTimeout(function() {
+            previewName.style.transform = 'scale(1)';
+            previewName.style.color = '#333';
+        }, 300);
+    }
+
+    // Sayfa yüklendiğinde
+    document.addEventListener('DOMContentLoaded', function() {
+        updatePreview();
+
+        // Input'a focus olduğunda güzel animasyon
+        var categoryInput = document.getElementById('categoryName');
+        if (categoryInput) {
+            categoryInput.addEventListener('focus', function() {
+                this.style.transform = 'scale(1.02)';
+            });
+
+            categoryInput.addEventListener('blur', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
+    });
+</script>

@@ -1,0 +1,46 @@
+﻿@model WebApplication11.Models.PasswordEntry
+@{
+    ViewBag.Title = "Şifre Sil";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="glyphicon glyphicon-trash"></i> Şifre Sil
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-warning">
+                    <strong>Uyarı!</strong> Bu şifre kaydını silmek istediğinizden emin misiniz?
+                </div>
+
+                <dl class="dl-horizontal">
+                    <dt>@Html.DisplayNameFor(model => model.Title)</dt>
+                    <dd>@Html.DisplayFor(model => model.Title)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Url)</dt>
+                    <dd>@Html.DisplayFor(model => model.Url)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Username)</dt>
+                    <dd>@Html.DisplayFor(model => model.Username)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Category.Name)</dt>
+                    <dd>@Html.DisplayFor(model => model.Category.Name)</dd>
+
+                    <dt>Oluşturma Tarihi</dt>
+                    <dd>@Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")</dd>
+                </dl>
+
+                @using (Html.BeginForm()) {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="Sil" class="btn btn-danger" />
+                    @Html.ActionLink("İptal", "Index", null, new { @class = "btn btn-default" })
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

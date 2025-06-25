@@ -1,0 +1,1009 @@
+﻿@model IEnumerable<WebApplication11.Models.PasswordEntry>
+@{
+    ViewBag.Title = "Şifre Yöneticisi";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .dashboard-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .password-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        border-left: 4px solid #667eea;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .password-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+        background-size: 200% 200%;
+    }
+
+    .password-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .modern-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .modern-btn:hover {
+        transform: translateY(-2px);
+        color: white;
+        text-decoration: none;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+
+    .stats-card {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .stats-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+    }
+
+    .stats-card h3 {
+        font-size: 2rem;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .search-section {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 30px;
+        backdrop-filter: blur(10px);
+    }
+
+    .strength-badge {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    /* FAVORİ YILDIZ STİLLERİ */
+    .favorite-star {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.8rem;
+        margin-right: 10px;
+        display: inline-block;
+        color: #ddd;
+        user-select: none;
+    }
+
+    .favorite-star:hover {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 8px currentColor);
+    }
+
+    .favorite-star.favorited {
+        color: #ffd700 !important;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    }
+
+    .favorite-star.not-favorited {
+        color: #ccc !important;
+    }
+
+    .star-icon {
+        color: inherit;
+    }
+
+    .password-meta {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-top: 10px;
+    }
+
+    .password-meta p {
+        margin-bottom: 5px;
+    }
+
+    .floating-action {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .floating-action:hover {
+        transform: scale(1.1);
+        color: white;
+        text-decoration: none;
+        box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+    }
+
+    .password-title {
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .btn-group .btn {
+        margin-right: 5px;
+    }
+
+    .star-container {
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+
+    .title-text {
+        flex: 1;
+        margin-left: 5px;
+    }
+
+    /* Stats sayacı animasyonu */
+    .stats-counter {
+        transition: all 0.5s ease;
+    }
+
+    .stats-counter.updating {
+        transform: scale(1.1);
+        color: #ffd700;
+    }
+
+    /* ASİSTAN STİLLERİ */
+    .assistant-container {
+        position: fixed;
+        bottom: 20px;
+        right: 100px;
+        z-index: 1000;
+    }
+
+    .assistant-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #00c851 0%, #007e33 100%);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 200, 81, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+        position: relative;
+    }
+
+    .assistant-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(0, 200, 81, 0.6);
+    }
+
+    @@keyframes pulse {
+        0%, 100% { box-shadow: 0 4px 20px rgba(0, 200, 81, 0.4); }
+        50% { box-shadow: 0 4px 30px rgba(0, 200, 81, 0.8); }
+    }
+
+    .chat-widget {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        width: 350px;
+        height: 450px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        animation: slideUp 0.3s ease-out;
+    }
+
+    @@keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .chat-header {
+        background: linear-gradient(135deg, #00c851 0%, #007e33 100%);
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chat-header h4 {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+        transition: background 0.3s;
+    }
+
+    .close-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .chat-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background: #f8f9fa;
+    }
+
+    .welcome-message {
+        text-align: center;
+        color: #666;
+        padding: 10px;
+        line-height: 1.5;
+    }
+
+    .help-topics {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .help-topic {
+        background: rgba(0, 200, 81, 0.1);
+        border: 1px solid rgba(0, 200, 81, 0.3);
+        border-radius: 8px;
+        padding: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 11px;
+    }
+
+    .help-topic:hover {
+        background: rgba(0, 200, 81, 0.2);
+        transform: scale(1.02);
+    }
+
+    .quick-actions {
+        padding: 15px 20px;
+        border-top: 1px solid #eee;
+        background: white;
+    }
+
+    .quick-action-btn {
+        display: block;
+        width: 100%;
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .quick-action-btn:hover {
+        background: #e9ecef;
+        border-color: #00c851;
+    }
+
+    .notification-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #ff4757;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .message {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .bot-message {
+        flex-direction: row;
+    }
+
+    .user-message {
+        flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #00c851 0%, #007e33 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        flex-shrink: 0;
+        font-size: 14px;
+    }
+
+    .user-message .message-avatar {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .message-content {
+        background: white;
+        padding: 12px 15px;
+        border-radius: 15px;
+        max-width: 250px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .user-message .message-content {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .typing-indicator {
+        display: none;
+        align-items: center;
+        gap: 5px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 15px;
+        font-size: 12px;
+    }
+
+    .typing-dots {
+        display: flex;
+        gap: 3px;
+    }
+
+    .typing-dot {
+        width: 4px;
+        height: 4px;
+        background: #666;
+        border-radius: 50%;
+        animation: typing 1.4s infinite;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @@keyframes typing {
+        0%, 60%, 100% { transform: scale(1); opacity: 0.5; }
+        30% { transform: scale(1.2); opacity: 1; }
+    }
+</style>
+
+<div class="dashboard-container">
+    <div class="text-center mb-4">
+        <h1 class="header-title">
+            <i class="glyphicon glyphicon-lock"></i> Şifre Yöneticisi
+        </h1>
+        <p class="text-muted">Şifrelerinizi güvenli bir şekilde yönetin</p>
+    </div>
+
+    <!-- İstatistik Kartları -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="stats-card">
+                <h3 id="totalCount" class="stats-counter">@Model.Count()</h3>
+                <p>Toplam Şifre</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <h3 id="favoriteCount" class="stats-counter">@Model.Count(p => p.IsFavorite)</h3>
+                <p>Favori Şifreler</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <h3 id="strongCount" class="stats-counter">@Model.Count(p => p.PasswordStrength == 2)</h3>
+                <p>Güçlü Şifreler</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                <h3 id="weakCount" class="stats-counter">@Model.Count(p => p.PasswordStrength == 0)</h3>
+                <p>Zayıf Şifreler</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aksiyon Butonları -->
+    <div class="mb-4">
+        @Html.ActionLink("🔐 Yeni Şifre Ekle", "Create", null, new { @class = "modern-btn" })
+        @Html.ActionLink("📁 Kategoriler", "Index", "Categories", null, new { @class = "modern-btn" })
+        @Html.ActionLink("📊 Güvenlik Analizi", "SecurityAnalysis", null, new { @class = "modern-btn" })
+        @Html.ActionLink("🚪 Çıkış", "LogOff", "Account", null, new { @class = "modern-btn" })
+    </div>
+
+    <!-- Arama ve Filtreleme -->
+    <div class="search-section">
+        @using (Html.BeginForm("Index", "Passwords", FormMethod.Get, new { @class = "form-inline" }))
+        {
+        <div class="row">
+            <div class="col-md-4">
+                @Html.TextBox("search", ViewBag.Search as string, new { @class = "form-control", @placeholder = "🔍 Arama..." })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownList("categoryId", ViewBag.Categories as SelectList, "📂 Tüm Kategoriler", new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-search"></i> Ara
+                </button>
+                @Html.ActionLink("Temizle", "Index", null, new { @class = "btn btn-link" })
+            </div>
+        </div>
+        }
+    </div>
+
+    <!-- Şifre Kartları -->
+    @if (Model.Any())
+    {
+    <div class="row">
+        @foreach (var item in Model)
+            {
+        <div class="col-md-6 col-lg-4">
+            <div class="password-card">
+                <h4 class="password-title">
+                    <div class="star-container">
+                        <span class="favorite-star @(item.IsFavorite ? "favorited" : "not-favorited")"
+                              data-id="@item.Id"
+                              data-favorited="@item.IsFavorite.ToString().ToLower()"
+                              onclick="toggleFavorite(@item.Id, this)"
+                              title="@(item.IsFavorite ? "Favorilerden çıkar" : "Favorilere ekle")">
+                            <span class="star-icon">@(item.IsFavorite ? "★" : "☆")</span>
+                        </span>
+                        <span class="title-text">@Html.DisplayFor(modelItem => item.Title)</span>
+                    </div>
+                    <span class="strength-badge alert-@(WebApplication11.Models.PasswordHelper.GetPasswordStrengthColor(item.PasswordStrength))">
+                        @(WebApplication11.Models.PasswordHelper.GetPasswordStrengthText(item.PasswordStrength))
+                    </span>
+                </h4>
+
+                <div class="password-meta">
+                    @if (!string.IsNullOrEmpty(item.Url))
+                            {
+                    <p><i class="glyphicon glyphicon-link"></i> <a href="@item.Url" target="_blank">@item.Url</a></p>
+                            }
+                    <p><i class="glyphicon glyphicon-user"></i> @Html.DisplayFor(modelItem => item.Username)</p>
+                    <p><i class="glyphicon glyphicon-folder-open"></i> @Html.DisplayFor(modelItem => item.Category.Name)</p>
+                    <p><i class="glyphicon glyphicon-time"></i> @item.CreatedDate.ToString("dd.MM.yyyy")</p>
+                </div>
+
+                <div class="btn-group btn-group-sm" style="margin-top: 15px;">
+                    <button type="button" class="btn btn-info" onclick="showPassword(@item.Id, '@item.Password')">
+                        <i class="glyphicon glyphicon-eye-open"></i> Şifreyi Göster
+                    </button>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </div>
+            </div>
+        </div>
+            }
+    </div>
+    }
+    else
+    {
+    <div class="text-center" style="padding: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 20px;">
+        <h3>🔐 Henüz şifre kaydı yok!</h3>
+        <p>İlk şifrenizi eklemek için aşağıdaki butona tıklayın.</p>
+        @Html.ActionLink("İlk Şifremi Ekle", "Create", null, new { @class = "btn btn-light btn-lg", style = "margin-top: 20px;" })
+    </div>
+    }
+</div>
+
+<!-- Floating Action Button -->
+@Html.ActionLink("+", "Create", null, new { @class = "floating-action", title = "Yeni Şifre Ekle" })
+
+<!-- 🤖 ASİSTAN KODU -->
+<div class="assistant-container">
+    <button class="assistant-button" onclick="toggleChat()">
+        🤖
+        <div class="notification-badge" id="assistantBadge">!</div>
+    </button>
+
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <h4>🤖 ŞifreBot</h4>
+            <button class="close-btn" onclick="toggleChat()">×</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="welcome-message">
+                <strong>👋 Merhaba!</strong><br>
+                Şifre yönetiminizde size nasıl yardımcı olabilirim?
+
+                <div class="help-topics">
+                    <div class="help-topic" onclick="askQuestion('Yeni şifre nasıl eklerim?')">
+                        ➕ Yeni Şifre
+                    </div>
+                    <div class="help-topic" onclick="askQuestion('Zayıf şifrelerimi göster')">
+                        ⚠️ Zayıf Şifreler
+                    </div>
+                    <div class="help-topic" onclick="askQuestion('Kategori nasıl oluştururum?')">
+                        📁 Kategori
+                    </div>
+                    <div class="help-topic" onclick="askQuestion('Bu sayfayı nasıl kullanırım?')">
+                        ❓ Nasıl Kullanırım
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="message-avatar">🤖</div>
+                <div>
+                    ŞifreBot yazıyor
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-action-btn" onclick="window.location.href='/Passwords/Create'">
+                ➕ Yeni şifre ekle
+            </button>
+            <button class="quick-action-btn" onclick="window.location.href='/Categories/Index'">
+                📁 Kategorileri yönet
+            </button>
+            <button class="quick-action-btn" onclick="window.location.href='/Passwords/SecurityAnalysis'">
+                🛡️ Güvenlik analizi aç
+            </button>
+            <button class="quick-action-btn" onclick="askQuestion('Güvenlik önerileri')">
+                💡 Kişisel öneriler al
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Şifre Gösterme Modal -->
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">🔑 Şifre</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Şifre:</label>
+                    <div class="input-group">
+                        <input type="text" id="modalPassword" class="form-control" readonly style="font-family: monospace; font-size: 16px; background: #f8f9fa;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" onclick="copyPassword()">
+                                <i class="glyphicon glyphicon-copy"></i> Kopyala
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+// jQuery yüklenme kontrolü
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof $ === 'undefined') {
+        console.error('jQuery yüklenmedi!');
+        return;
+    }
+    console.log('jQuery yüklendi:', $.fn.jquery);
+});
+
+// Şifre gösterme fonksiyonu
+function showPassword(id, password) {
+    if (typeof $ !== 'undefined') {
+        $('#modalPassword').val(password);
+        $('#passwordModal').modal('show');
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '@Url.Action("UpdateLastAccess", "Passwords")', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('id=' + id);
+    }
+}
+
+// Şifre kopyalama fonksiyonu
+function copyPassword() {
+    var passwordField = document.getElementById('modalPassword');
+    if (passwordField) {
+        passwordField.select();
+        document.execCommand('copy');
+        showToast('Şifre kopyalandı! 📋', 'success');
+    }
+}
+
+// Favori istatistiği güncelleme
+function updateFavoriteStats(increment) {
+    var favoriteCountElement = document.getElementById('favoriteCount');
+    if (favoriteCountElement) {
+        var currentCount = parseInt(favoriteCountElement.textContent);
+        var newCount = currentCount + (increment ? 1 : -1);
+        favoriteCountElement.classList.add('updating');
+        setTimeout(function() {
+            favoriteCountElement.textContent = newCount;
+            favoriteCountElement.classList.remove('updating');
+        }, 250);
+    }
+}
+
+// Favori toggle fonksiyonu
+function toggleFavorite(id, starElement) {
+    console.log('toggleFavorite çağrıldı:', id);
+    starElement.style.opacity = '0.5';
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '@Url.Action("ToggleFavorite", "Passwords")', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            starElement.style.opacity = '1';
+            if (xhr.status === 200) {
+                try {
+                    var data = JSON.parse(xhr.responseText);
+                    if (data.success) {
+                        var newFavorited = data.isFavorite;
+                        starElement.setAttribute('data-favorited', newFavorited.toString());
+
+                        if (newFavorited) {
+                            starElement.classList.remove('not-favorited');
+                            starElement.classList.add('favorited');
+                            starElement.querySelector('.star-icon').textContent = '★';
+                            starElement.setAttribute('title', 'Favorilerden çıkar');
+                            updateFavoriteStats(true);
+                        } else {
+                            starElement.classList.remove('favorited');
+                            starElement.classList.add('not-favorited');
+                            starElement.querySelector('.star-icon').textContent = '☆';
+                            starElement.setAttribute('title', 'Favorilere ekle');
+                            updateFavoriteStats(false);
+                        }
+
+                        showToast(newFavorited ? 'Favorilere eklendi! ⭐' : 'Favorilerden çıkarıldı! 💔', 'info');
+                    } else {
+                        showToast('Hata oluştu!', 'danger');
+                    }
+                } catch (e) {
+                    console.error('JSON parse hatası:', e);
+                    showToast('Veri hatası!', 'danger');
+                }
+            } else {
+                console.error('AJAX hatası:', xhr.status);
+                showToast('Bağlantı hatası!', 'danger');
+            }
+        }
+    };
+    xhr.send('id=' + id);
+}
+
+// Toast bildirimi
+function showToast(message, type) {
+    var toast = document.createElement('div');
+    toast.className = 'alert alert-' + type + ' alert-dismissible';
+    toast.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+    toast.innerHTML = '<button type="button" class="close" onclick="this.parentElement.remove()">&times;</button>' + message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(function() {
+        if (toast.parentElement) {
+            toast.style.opacity = '0';
+            setTimeout(function() {
+                if (toast.parentElement) {
+                    toast.parentElement.removeChild(toast);
+                }
+            }, 300);
+        }
+    }, 3000);
+}
+
+// ASİSTAN FONKSİYONLARI
+let chatOpen = false;
+
+function toggleChat() {
+    const widget = document.getElementById('chatWidget');
+    const badge = document.querySelector('.notification-badge');
+
+    if (chatOpen) {
+        widget.style.display = 'none';
+        chatOpen = false;
+    } else {
+        widget.style.display = 'flex';
+        chatOpen = true;
+        if (badge) {
+            badge.style.display = 'none';
+        }
+    }
+}
+
+function addMessage(content, isUser = false) {
+    const messagesContainer = document.getElementById('chatMessages');
+    const welcomeMsg = document.querySelector('.welcome-message');
+
+    if (welcomeMsg && !isUser) {
+        welcomeMsg.style.display = 'none';
+    }
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+
+    messageDiv.innerHTML = `
+        <div class="message-avatar">${isUser ? 'U' : '🤖'}</div>
+        <div class="message-content">${content}</div>
+    `;
+
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function showTyping() {
+    document.getElementById('typingIndicator').style.display = 'flex';
+    const messagesContainer = document.getElementById('chatMessages');
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function hideTyping() {
+    document.getElementById('typingIndicator').style.display = 'none';
+}
+
+function askQuestion(question) {
+    addMessage(question, true);
+
+    showTyping();
+
+    setTimeout(() => {
+        hideTyping();
+
+        let response = '';
+
+        switch(question) {
+            case 'Yeni şifre nasıl eklerim?':
+                response = `➕ <strong>Yeni şifre eklemek için:</strong><br><br>
+                        1. "🔐 Yeni Şifre Ekle" butonuna tıklayın<br>
+                        2. Site/uygulama adını girin<br>
+                        3. URL ve kategori seçin<br>
+                        4. Güçlü şifre oluşturun veya otomatik ürettirin<br><br>
+                        💡 <em>Sağ alttaki turuncu "+" butonunu da kullanabilirsiniz!</em>`;
+                break;
+
+            case 'Zayıf şifrelerimi göster':
+                var weakCount = parseInt(document.getElementById('weakCount').textContent) || 0;
+                response = `⚠️ <strong>Zayıf şifre durumunuz:</strong><br><br>
+                        Şu anda <strong>${weakCount}</strong> zayıf şifreniz var.<br><br>
+                        • Kırmızı etiketli şifreler zayıf şifrelerdir<br>
+                        • "📊 Güvenlik Analizi" ile detayları görün<br>
+                        • Hemen güçlü şifrelerle değiştirin<br><br>
+                        🔧 <em>Güvenlik analizi sayfasından detaylı rapor alabilirsiniz!</em>`;
+                break;
+
+            case 'Kategori nasıl oluştururum?':
+                response = `📁 <strong>Kategori oluşturma rehberi:</strong><br><br>
+                        1. "📁 Kategoriler" butonuna tıklayın<br>
+                        2. "Yeni Kategori" seçin<br>
+                        3. Benzersiz bir kategori adı girin<br>
+                        4. İstediğiniz rengi seçin ve kaydedin<br><br>
+                        💡 <em>Öneriler: Sosyal Medya, E-posta, Bankacılık, İş, Alışveriş, Oyun</em>`;
+                break;
+
+            case 'Bu sayfayı nasıl kullanırım?':
+                response = `📖 <strong>Ana sayfa kullanım rehberi:</strong><br><br>
+                        • <strong>Üst kartlar:</strong> Şifre istatistiklerinizi gösterir<br>
+                        • <strong>Arama kutusu:</strong> Şifre aramak için<br>
+                        • <strong>Kategori filtresi:</strong> Kategoriye göre listeler<br>
+                        • <strong>⭐ Yıldız:</strong> Favoriye ekle/çıkar<br>
+                        • <strong>Renkli etiketler:</strong> Güvenlik seviyesi<br>
+                        • <strong>"Şifreyi Göster":</strong> Şifrenizi kopyalar<br><br>
+                        💡 <em>Kartlara tıklayarak detayları görüp düzenleyebilirsiniz!</em>`;
+                break;
+
+            case 'Güvenlik önerileri':
+                var totalPasswords = parseInt(document.getElementById('totalCount').textContent) || 0;
+                var weakPasswords = parseInt(document.getElementById('weakCount').textContent) || 0;
+                var strongPasswords = parseInt(document.getElementById('strongCount').textContent) || 0;
+                var favoritePasswords = parseInt(document.getElementById('favoriteCount').textContent) || 0;
+
+                response = `🛡️ <strong>Kişisel güvenlik önerileriniz:</strong><br><br>`;
+
+                if (weakPasswords > 0) {
+                    response += `🚨 ${weakPasswords} zayıf şifreniz var - ACİLEN güncelleyin!<br>`;
+                }
+                if (totalPasswords > 0 && strongPasswords < totalPasswords * 0.7) {
+                    response += `📈 Daha fazla güçlü şifre oluşturmanız öneriliyor<br>`;
+                }
+                if (totalPasswords < 3) {
+                    response += `📝 Daha fazla hesabınızı şifre yöneticisine ekleyin<br>`;
+                }
+                if (favoritePasswords === 0 && totalPasswords > 0) {
+                    response += `⭐ Sık kullandığınız şifreleri favorilere ekleyin<br>`;
+                }
+
+                response += `<br>✅ <strong>Genel öneriler:</strong><br>`;
+                response += `• Düzenli olarak şifrelerinizi kontrol edin<br>`;
+                response += `• 2FA (İki faktörlü doğrulama) kullanın<br>`;
+                response += `• Aynı şifreyi birden fazla yerde kullanmayın<br>`;
+                response += `• En az 12 karakter uzunluğunda şifre oluşturun<br><br>`;
+                response += `🎯 <em>Bu adımları takip ederek dijital güvenliğinizi maksimuma çıkarabilirsiniz!</em>`;
+                break;
+
+            case 'Güvenlik analizi nedir?':
+                response = `🛡️ <strong>Güvenlik Analizi Özelliği:</strong><br><br>
+                        • Tüm şifrelerinizi detaylı analiz eder<br>
+                        • Zayıf ve güçlü şifreleri tespit eder<br>
+                        • Tekrar eden şifreleri bulur<br>
+                        • Eski tarihli şifreleri uyarır<br>
+                        • Genel güvenlik skoru hesaplar<br>
+                        • Kişiselleştirilmiş öneriler sunar<br><br>
+                        📊 <em>"📊 Güvenlik Analizi" butonuna tıklayarak detaylı raporu görüntüleyebilirsiniz!</em>`;
+                break;
+
+            default:
+                response = `🤔 <strong>Anlayamadım, tekrar dener misiniz?</strong><br><br>
+                        Yukarıdaki konulardan birini seçebilir veya hızlı eylemlerden yararlanabilirsiniz.<br><br>
+                        💡 <em>Daha spesifik sorular sorabilirsiniz:</em><br>
+                        • "Şifre gücü nasıl belirlenir?"<br>
+                        • "Favoriler nasıl çalışır?"<br>
+                        • "Hangi kategoriler önerirsin?"`;
+        }
+
+        addMessage(response);
+    }, 1200);
+}
+
+// Klavye kısayolları
+document.addEventListener('keydown', function(e) {
+    // Ctrl + K: Arama kutusuna odaklan
+    if (e.ctrlKey && e.key === 'k') {
+        e.preventDefault();
+        const searchBox = document.querySelector('input[name="search"]');
+        if (searchBox) {
+            searchBox.focus();
+            searchBox.select();
+        }
+    }
+
+    // Ctrl + Shift + A: Asistanı aç/kapat
+    if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        e.preventDefault();
+        toggleChat();
+    }
+
+    // ESC: Asistanı kapat
+    if (e.key === 'Escape' && chatOpen) {
+        toggleChat();
+    }
+});
+
+// Responsive davranış için window resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth < 768 && chatOpen) {
+        const chatWidget = document.getElementById('chatWidget');
+        if (chatWidget) {
+            chatWidget.style.width = '95vw';
+            chatWidget.style.height = '80vh';
+            chatWidget.style.right = '2.5vw';
+        }
+    }
+});
+
+// Sayfa yüklendiğinde çalışacak fonksiyonlar
+window.onload = function() {
+    console.log('🤖 Sayfa yüklendi, tüm sistemler aktif!');
+    var stars = document.querySelectorAll('.favorite-star');
+    console.log('Bulunan yıldız sayısı:', stars.length);
+
+    // Asistan bildirimi göster (3 saniye sonra)
+    setTimeout(() => {
+        const badge = document.querySelector('.notification-badge');
+        if (badge) {
+            badge.style.display = 'flex';
+            console.log('Asistan bildirimi aktif!');
+        }
+    }, 3000);
+
+    // İstatistik kartlarına hover efekti ekle
+    const statsCards = document.querySelectorAll('.stats-card');
+    statsCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(-3px) scale(1)';
+        });
+    });
+
+    console.log('🎉 ŞifreBot sistemi tamamen yüklendi ve hazır!');
+};
+</script>

@@ -1,0 +1,261 @@
+﻿@model WebApplication11.Models.PasswordEntry
+@{
+    ViewBag.Title = "Yeni Şifre Ekle";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px 0;
+    }
+
+    .form-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        margin: 20px auto;
+        padding: 40px;
+        max-width: 800px;
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .header-subtitle {
+        text-align: center;
+        color: #6c757d;
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .control-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+        font-size: 14px;
+        display: block;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        padding: 12px 16px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            background: rgba(255, 255, 255, 1);
+            outline: none;
+        }
+
+    .modern-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-right: 10px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        cursor: pointer;
+    }
+
+        .modern-btn:hover {
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+    .btn-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    }
+
+        .btn-success:hover {
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.6);
+        }
+
+    .btn-info {
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        margin-left: 5px;
+        border-radius: 8px;
+    }
+
+    .btn-default {
+        background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        margin-left: 5px;
+        border-radius: 8px;
+    }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .form-actions {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .well {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="form-container">
+    <div class="text-center mb-4">
+        <h1 class="header-title">
+            <i class="glyphicon glyphicon-plus"></i> Yeni Şifre Ekle
+        </h1>
+        <p class="header-subtitle">Güvenli şifrenizi oluşturun ve kaydedin</p>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, "Kayıt Tanımı", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Örn: Gmail Hesabım, Netflix, vs." } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control", @placeholder = "https://example.com" } })
+        @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryId, "Kategori", htmlAttributes: new { @class = "control-label" })
+        @Html.DropDownList("CategoryId", ViewBag.CategoryId as SelectList, "Kategori Seçin", htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Username, "Kullanıcı Adı", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "E-posta adresi veya kullanıcı adı" } })
+        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+        <div style="display: flex; align-items: stretch;">
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @id = "passwordField", @placeholder = "Güvenli şifrenizi girin", @style = "border-top-right-radius: 0; border-bottom-right-radius: 0;" })
+            <button class="btn btn-info" type="button" onclick="generatePassword()" title="Güvenli şifre üret">
+                <i class="glyphicon glyphicon-refresh"></i> Üret
+            </button>
+            <button class="btn btn-default" type="button" onclick="togglePassword()" title="Şifreyi göster/gizle">
+                <i class="glyphicon glyphicon-eye-open" id="eyeIcon"></i>
+            </button>
+        </div>
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+        <div class="well well-sm" style="margin-top: 10px;">
+            <strong>Şifre Üretici Ayarları:</strong><br>
+            <div style="margin-top: 10px;">
+                <label style="margin-right: 15px;">Uzunluk: <input type="number" id="passwordLength" value="12" min="6" max="50" style="width: 60px;"></label>
+                <label style="margin-right: 15px;"><input type="checkbox" id="includeNumbers" checked> Sayılar</label>
+                <label><input type="checkbox" id="includeSymbols" checked> Semboller</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" value="Kaydet" class="modern-btn btn-success" />
+        @Html.ActionLink("Listeye Dön", "Index", null, new { @class = "modern-btn" })
+    </div>
+    }
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    function generatePassword() {
+        var length = document.getElementById('passwordLength').value;
+        var includeNumbers = document.getElementById('includeNumbers').checked;
+        var includeSymbols = document.getElementById('includeSymbols').checked;
+
+        if (typeof $ !== 'undefined') {
+            $.post('@Url.Action("GeneratePassword", "Passwords")', {
+                length: length,
+                includeNumbers: includeNumbers,
+                includeSymbols: includeSymbols
+            }, function(data) {
+                document.getElementById('passwordField').value = data.password;
+            }).fail(function() {
+                var password = generatePasswordLocal(length, includeNumbers, includeSymbols);
+                document.getElementById('passwordField').value = password;
+            });
+        } else {
+            var password = generatePasswordLocal(length, includeNumbers, includeSymbols);
+            document.getElementById('passwordField').value = password;
+        }
+    }
+
+    function generatePasswordLocal(length, includeNumbers, includeSymbols) {
+        var letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var numbers = '0123456789';
+        var symbols = '!' + String.fromCharCode(64) + '#$%^&*()_+-=[]{}|;:,.<>?';
+
+        var charset = letters;
+        if (includeNumbers) charset += numbers;
+        if (includeSymbols) charset += symbols;
+
+        var password = '';
+        for (var i = 0; i < length; i++) {
+            password += charset.charAt(Math.floor(Math.random() * charset.length));
+        }
+        return password;
+    }
+
+    function togglePassword() {
+        var passwordField = document.getElementById('passwordField');
+        var eyeIcon = document.getElementById('eyeIcon');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.className = 'glyphicon glyphicon-eye-close';
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.className = 'glyphicon glyphicon-eye-open';
+        }
+    }
+</script>

@@ -1,0 +1,144 @@
+﻿@model WebApplication11.Models.PasswordEntry
+@{
+    ViewBag.Title = "Şifre Düzenle";
+}
+
+<div class="password-edit-page">
+    <div class="gradient-container">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="page-title">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Şifre Düzenle
+                </h2>
+
+                @using (Html.BeginForm())
+                {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Örn: Gmail, Facebook, vs." } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control", @placeholder = "https://example.com" } })
+                    @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryId, "Kategori", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownList("CategoryId", ViewBag.CategoryId as SelectList, "Kategori Seçin", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Kullanıcı adı veya e-posta" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+                    <div class="input-group">
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", @id = "passwordField", @placeholder = "Güvenli şifre girin" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="button" onclick="generatePassword()" title="Yeni Şifre Üret">
+                                <i class="glyphicon glyphicon-refresh"></i> Şifre Üret
+                            </button>
+                            <button class="btn btn-default" type="button" onclick="togglePassword()" title="Şifreyi Göster/Gizle">
+                                <i class="glyphicon glyphicon-eye-open" id="eyeIcon"></i>
+                            </button>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                    <!-- Şifre Üretici Ayarları -->
+                    <div class="well">
+                        <strong>🔧 Şifre Üretici Ayarları</strong>
+                        <div>
+                            <label>
+                                Uzunluk:
+                                <input type="number" id="passwordLength" value="12" min="6" max="50">
+                            </label>
+                            <label>
+                                <input type="checkbox" id="includeNumbers" checked>
+                                Sayılar (0-9)
+                            </label>
+                            <label>
+                                <input type="checkbox" id="includeSymbols" checked>
+                                Semboller (!&#64;#$)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <input type="submit" value="✓ Güncelle" class="btn btn-success" />
+                    @Html.ActionLink("← Listeye Dön", "Index", null, new { @class = "btn btn-default" })
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function generatePassword() {
+        var length = document.getElementById('passwordLength').value;
+        var includeNumbers = document.getElementById('includeNumbers').checked;
+        var includeSymbols = document.getElementById('includeSymbols').checked;
+
+        // Buton animasyonu
+        var button = event.target.closest('.btn-info');
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 150);
+
+        $.post('@Url.Action("GeneratePassword", "Passwords")', {
+            length: length,
+            includeNumbers: includeNumbers,
+            includeSymbols: includeSymbols
+        }, function(data) {
+            $('#passwordField').val(data.password);
+
+            // Şifre üretildiğinde animasyon
+            $('#passwordField').addClass('animate');
+            setTimeout(function() {
+                $('#passwordField').removeClass('animate');
+            }, 600);
+        });
+    }
+
+    function togglePassword() {
+        var passwordField = document.getElementById('passwordField');
+        var eyeIcon = document.getElementById('eyeIcon');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.className = 'glyphicon glyphicon-eye-close';
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.className = 'glyphicon glyphicon-eye-open';
+        }
+    }
+
+    // Sayfa yüklendiğinde animasyonlar
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form elementlerine hover efektleri
+        document.querySelectorAll('.form-control').forEach(function(input) {
+            input.addEventListener('focus', function() {
+                this.closest('.form-group').style.transform = 'translateY(-2px)';
+            });
+
+            input.addEventListener('blur', function() {
+                this.closest('.form-group').style.transform = '';
+            });
+        });
+    });
+</script>

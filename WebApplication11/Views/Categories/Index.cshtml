@@ -1,0 +1,307 @@
+﻿@model IEnumerable<WebApplication11.Models.Category>
+@{
+    ViewBag.Title = "Kategoriler";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px 0;
+    }
+
+    .categories-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        margin: 20px auto;
+        padding: 40px;
+        max-width: 1000px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .header-subtitle {
+        text-align: center;
+        color: #6c757d;
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+    }
+
+    .action-buttons {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .modern-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 0 10px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+        .modern-btn:hover {
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .modern-btn.btn-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+        }
+
+            .modern-btn.btn-primary:hover {
+                box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
+            }
+
+        .modern-btn.btn-info {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
+        }
+
+            .modern-btn.btn-info:hover {
+                box-shadow: 0 8px 25px rgba(23, 162, 184, 0.6);
+            }
+
+    .category-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 25px;
+        transition: all 0.3s ease;
+        border-left: 4px solid #667eea;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .category-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 200% 200%;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    .category-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .category-name {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .category-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+    }
+
+    .category-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-sm {
+        padding: 8px 16px;
+        font-size: 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-warning {
+        background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+        color: white;
+        box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+    }
+
+        .btn-warning:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-danger {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: white;
+        box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+    }
+
+        .btn-danger:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.5);
+            color: white;
+            text-decoration: none;
+        }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 20px;
+        margin-top: 30px;
+    }
+
+        .empty-state h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .empty-state .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+            .empty-state .btn:hover {
+                background: rgba(255, 255, 255, 0.3);
+                border-color: rgba(255, 255, 255, 0.5);
+                transform: translateY(-2px);
+                color: white;
+                text-decoration: none;
+            }
+
+    /* Responsive */
+    .responsive-mobile {
+        display: none;
+    }
+
+    .categories-container-mobile {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .header-title-mobile {
+        font-size: 2rem;
+    }
+
+    .category-header-mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .category-actions-mobile {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .action-buttons-mobile {
+        text-align: center;
+    }
+
+    .modern-btn-mobile {
+        margin: 5px;
+        display: block;
+        width: 200px;
+        margin: 5px auto;
+    }
+</style>
+
+<div class="categories-container">
+    <div class="text-center mb-4">
+        <h1 class="header-title">
+            <i class="glyphicon glyphicon-folder-open"></i> Kategoriler
+        </h1>
+        <p class="header-subtitle">Şifre kategorilerinizi yönetin ve düzenleyin</p>
+    </div>
+
+    <div class="action-buttons">
+        @Html.ActionLink("📁 Yeni Kategori", "Create", null, new { @class = "modern-btn btn-primary" })
+        @Html.ActionLink("🔐 Şifrelerime Dön", "Index", "Passwords", null, new { @class = "modern-btn btn-info" })
+    </div>
+
+    @if (Model.Any())
+    {
+    <div class="row">
+        @foreach (var item in Model)
+            {
+        <div class="col-md-6 col-lg-4">
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-name">
+                        <div class="category-icon">
+                            <i class="glyphicon glyphicon-folder-close"></i>
+                        </div>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </div>
+                </div>
+
+                <div class="category-actions">
+                    @Html.ActionLink("✏️ Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
+                    @Html.ActionLink("🗑️ Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                </div>
+            </div>
+        </div>
+            }
+    </div>
+    }
+    else
+    {
+    <div class="empty-state">
+        <h3>📂 Henüz kategori yok!</h3>
+        <p>Şifrelerinizi düzenlemek için kategoriler oluşturun</p>
+        @Html.ActionLink("İlk Kategorimi Oluştur", "Create", null, new { @class = "btn" })
+    </div>
+    }
+</div>

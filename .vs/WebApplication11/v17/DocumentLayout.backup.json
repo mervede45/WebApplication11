@@ -1,0 +1,534 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|c:\\users\\merve\\source\\repo\\webapplication11\\webapplication11\\views\\passwords\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\passwords\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\scripts\\assistant.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\scripts\\assistant.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\content\\assistant.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\content\\assistant.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\passwords\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\passwords\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\passwords\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\passwords\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\controllers\\passwordscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\controllers\\passwordscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\passwords\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\passwords\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\categories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\categories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\migrations\\202506240914124_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\migrations\\202506240914124_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\models\\passwordentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\models\\passwordentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\passwords\\securityanalysis.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\passwords\\securityanalysis.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\models\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\models\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\migrations\\202506241018583_addnewpasswordfeatures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\migrations\\202506241018583_addnewpasswordfeatures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\app_start\\identityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\app_start\\identityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\models\\accountviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|C:\\Users\\MERVE\\source\\repo\\WebApplication11\\webapplication11\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD229E0A-79E4-4258-9BE2-038C8446ED4F}|WebApplication11\\WebApplication11.csproj|solutionrelative:webapplication11\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAAANUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T19:56:58.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Passwords\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Edit.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Passwords\\Edit.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAYwI8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:55:12.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PasswordEntry.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\PasswordEntry.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Models\\PasswordEntry.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\PasswordEntry.cs",
+              "RelativeToolTip": "WebApplication11\\Models\\PasswordEntry.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAowCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:29:38.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Passwords\\Create.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Create.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Passwords\\Create.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAOsAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:53:30.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "202506240914124_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Migrations\\202506240914124_InitialCreate.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Migrations\\202506240914124_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Migrations\\202506240914124_InitialCreate.cs",
+              "RelativeToolTip": "WebApplication11\\Migrations\\202506240914124_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:14:17.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Categories\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Index.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Categories\\Index.cshtml",
+              "ViewState": "AgIAABgBAAAAAAAAAAAYwDIBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:56:33.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Delete.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Passwords\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Delete.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Passwords\\Delete.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAADwvy0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:55:50.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Passwords\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\Index.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Passwords\\Index.cshtml",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAIwAgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:50:05.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "assistant.css",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Content\\assistant.css",
+              "RelativeDocumentMoniker": "WebApplication11\\Content\\assistant.css",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Content\\assistant.css",
+              "RelativeToolTip": "WebApplication11\\Content\\assistant.css",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAUwN8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-24T19:47:25.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "assistant.js",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Scripts\\assistant.js",
+              "RelativeDocumentMoniker": "WebApplication11\\Scripts\\assistant.js",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Scripts\\assistant.js",
+              "RelativeToolTip": "WebApplication11\\Scripts\\assistant.js",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwGAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-24T19:48:14.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAIwLMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:37:43.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAYwJsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:38:08.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PasswordsController.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Controllers\\PasswordsController.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Controllers\\PasswordsController.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Controllers\\PasswordsController.cs",
+              "RelativeToolTip": "WebApplication11\\Controllers\\PasswordsController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAiwFoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:39:17.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Categories\\Create.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Create.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Categories\\Create.cshtml",
+              "ViewState": "AgIAAC0BAAAAAAAAAAAYwEcBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:57:04.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Categories\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Edit.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Categories\\Edit.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAADwvyIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:57:29.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Delete.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Categories\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Categories\\Delete.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Categories\\Delete.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvyEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:57:54.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "WebApplication11\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAcwJQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:35:38.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "WebApplication11\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:58:30.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "202506241018583_AddNewPasswordFeatures.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Migrations\\202506241018583_AddNewPasswordFeatures.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Migrations\\202506241018583_AddNewPasswordFeatures.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Migrations\\202506241018583_AddNewPasswordFeatures.cs",
+              "RelativeToolTip": "WebApplication11\\Migrations\\202506241018583_AddNewPasswordFeatures.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T10:19:12.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SecurityAnalysis.cshtml",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\SecurityAnalysis.cshtml",
+              "RelativeDocumentMoniker": "WebApplication11\\Views\\Passwords\\SecurityAnalysis.cshtml",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Views\\Passwords\\SecurityAnalysis.cshtml",
+              "RelativeToolTip": "WebApplication11\\Views\\Passwords\\SecurityAnalysis.cshtml",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAcwL4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T10:41:54.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PasswordHelper.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\PasswordHelper.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Models\\PasswordHelper.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\PasswordHelper.cs",
+              "RelativeToolTip": "WebApplication11\\Models\\PasswordHelper.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAswEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T10:21:26.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Global.asax.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Global.asax.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Global.asax.cs",
+              "RelativeToolTip": "WebApplication11\\Global.asax.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:58:58.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Startup.Auth.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\App_Start\\Startup.Auth.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\App_Start\\Startup.Auth.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\App_Start\\Startup.Auth.cs",
+              "RelativeToolTip": "WebApplication11\\App_Start\\Startup.Auth.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAowBUAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:06:04.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Migrations\\Configuration.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "WebApplication11\\Migrations\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T09:13:30.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "WebApplication11\\Models\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAowBwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:28:57.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IdentityConfig.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\App_Start\\IdentityConfig.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\App_Start\\IdentityConfig.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\App_Start\\IdentityConfig.cs",
+              "RelativeToolTip": "WebApplication11\\App_Start\\IdentityConfig.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAowDsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:31:53.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "WebApplication11\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAowBkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:28:17.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Startup.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Startup.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Startup.cs",
+              "RelativeToolTip": "WebApplication11\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAgwA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:30:27.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "WebApplication11\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAUwH8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:40:08.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AccountViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\AccountViewModels.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Models\\AccountViewModels.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\AccountViewModels.cs",
+              "RelativeToolTip": "WebApplication11\\Models\\AccountViewModels.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:36:38.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Web.config",
+              "RelativeDocumentMoniker": "WebApplication11\\Web.config",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Web.config",
+              "RelativeToolTip": "WebApplication11\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-24T08:32:14.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "WebApplication11\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\MERVE\\source\\repo\\WebApplication11\\WebApplication11\\Models\\Category.cs",
+              "RelativeToolTip": "WebApplication11\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:29:19.039Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
